@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
+
+class Solution:
+    def connectSticks(self, sticks: List[int]) -> int:
+        costList = []
+        cost = 0
+        x = 0
+        while(len(sticks)!=1):
+            sticks.sort()
+            cost = sticks[x] + sticks[x+1]
+            costList.append(cost)
+            sticks.remove(sticks[x])
+            sticks.remove(sticks[x])
+            sticks.insert(0,cost)
+            cost = 0
+        return sum(costList)
+
